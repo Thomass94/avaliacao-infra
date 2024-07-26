@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/SoftdesignBrasil/teste-infra.git'
+            }
+        }
+        stage('Deploy to Kubernetes') {
+            steps {
+                script {
+                    sh 'kubectl apply -f k8s/'
+                }
+            }
+        }
+    }
+}

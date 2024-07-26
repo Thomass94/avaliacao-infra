@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  config.yaml: |
+    key: value
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: app-secret
+type: Opaque
+data:
+  password: c2VjcmV0  # base64 encoded value
